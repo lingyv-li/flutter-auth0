@@ -71,7 +71,7 @@ class WebAuth {
           queryParameters: payload,
         ).toString();
         String accessToken = await _channel.invokeMethod(
-            'showUrl', {'url': authorizeUrl.replaceAll('+', ' ')});
+            'showUrl', {'url': authorizeUrl.replaceAll('+', '%20')});
         return exchange(
             code: accessToken, refirectUri: redirectUri, verifier: verifier);
       } on PlatformException catch (e) {
